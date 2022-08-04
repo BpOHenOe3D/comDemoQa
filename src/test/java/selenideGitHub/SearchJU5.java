@@ -17,7 +17,7 @@ public class SearchJU5 {
     }
 
     @Test
-    void Search() {
+    void search() {
         // Ищем репозиторий Селенида
         open("https://github.com/");
         $("[data-test-selector=nav-search-input]").setValue("selenide").pressEnter();
