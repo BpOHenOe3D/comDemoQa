@@ -3,47 +3,42 @@ package comDemoQa.tests;
 import com.codeborne.selenide.Configuration;
 
 import comDemoQa.pages.AutomationPracticeForm;
+import comDemoQa.testData.TestData;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-public class AutomationPracticeFormWithPageObjects {
+public class AutomationPracticeFormWithPageObjects extends TestData {
     AutomationPracticeForm automationPracticeForm = new AutomationPracticeForm();
 
-    @BeforeAll
-    static void configure() {
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "2560x1440";
-        Configuration.holdBrowserOpen = true;
-    }
 
     @Test
-    void fillGoodTest (){
+    void fillGoodTest() {
         automationPracticeForm.openPage()
-                .fillFirstName("Ser")
-                .fillLastName("Nik")
-                .fillEmailInput("test@mai.ru")
-                .fillNumberInput("1234567890")
-                .setGender("Male")
-                .setBirthDate("13","April","2010")
-                .fillSubjectInput("Math")
-                .setHobbies("Reading")
-                .uploadFile("src/test/resources/111.jpg")
-                .fillAdressInput("Home")
-                .setStateAndCity("Haryana","Karnal")
+                .fillFirstName(firstName)
+                .fillLastName(lastName)
+                .fillEmailInput(userEmail)
+                .fillNumberInput(userNumber)
+                .setGender(gender)
+                .setBirthDate(day, month, year)
+                .fillSubjectInput(subject)
+                .setHobbies(hobbie)
+                .uploadFile(picture)
+                .fillAdressInput(adress)
+                .setStateAndCity(state, city)
                 .submitButtonClick();
 
         automationPracticeForm.checkResultsTableVisible()
-                .checkResult("Student Name","Ser Nik")
-                .checkResult("Student Email","test@mai.ru")
-                .checkResult("Date of Birth","13 April,2010")
-                .checkResult("Gender","Male")
-                .checkResult("Mobile","1234567890")
-                .checkResult("Subjects","Maths")
-                .checkResult("Hobbies","Reading")
-                .checkResult("Address","Home")
-                .checkResult("State and City","Haryana Karnal")
-                .checkResult("Picture","111.jpg");
-        }
-
+                .checkResult("Student Name", fullName)
+                .checkResult("Student Email", userEmail)
+                .checkResult("Date of Birth", dateOfBirth)
+                .checkResult("Gender", gender)
+                .checkResult("Mobile", userNumber)
+                .checkResult("Subjects", subject)
+                .checkResult("Hobbies", hobbie)
+                .checkResult("Address", adress)
+                .checkResult("State and City", stateAndCity)
+                .checkResult("Picture", checkPicture);
     }
+
+}
 
