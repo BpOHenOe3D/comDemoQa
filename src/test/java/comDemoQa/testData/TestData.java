@@ -10,12 +10,6 @@ import java.util.Locale;
 import static java.lang.String.format;
 
 public class TestData {
-    @BeforeAll
-    static void configure() {
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "2560x1440";
-        Configuration.holdBrowserOpen = true;
-    }
 
 
     Faker faker = new Faker();

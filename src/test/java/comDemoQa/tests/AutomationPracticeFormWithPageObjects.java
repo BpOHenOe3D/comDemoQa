@@ -10,6 +10,12 @@ import org.junit.jupiter.api.Test;
 public class AutomationPracticeFormWithPageObjects extends TestData {
     AutomationPracticeForm automationPracticeForm = new AutomationPracticeForm();
 
+    @BeforeAll
+    static void configure() {
+        Configuration.baseUrl = "https://demoqa.com";
+        Configuration.browserSize = "2560x1440";
+        Configuration.holdBrowserOpen = true;
+    }
 
     @Test
     void fillGoodTest() {
