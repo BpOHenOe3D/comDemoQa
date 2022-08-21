@@ -1,0 +1,9 @@
+{
+  "firstName": "Sergey",
+  "age": 30,
+  "firstAuto": false,
+  "model": {
+    "name": "Ford",
+    "model": "Fiesta"
+  }
+}
