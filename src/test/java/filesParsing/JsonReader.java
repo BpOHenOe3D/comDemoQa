@@ -13,7 +13,7 @@ public class JsonReader {
     ClassLoader classLoader = GetFilesFromArchive.class.getClassLoader();
 
     @Test
-    void JsonParser() throws Exception {
+    void jsonParser() throws Exception {
         InputStream is = classLoader.getResourceAsStream("auto.json");
         ObjectMapper objectMapper = new ObjectMapper();
         Auto auto = objectMapper.readValue(is, Auto.class);
