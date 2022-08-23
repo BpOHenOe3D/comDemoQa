@@ -61,11 +61,9 @@ public class GetFilesFromArchive {
                 }
             }
         }
-        if (is != null) {
-            is.close();
-            zis.close();
+
         }
-    }
+
 
     @Test
     void zipPdfReader() throws Exception {
@@ -82,11 +80,9 @@ public class GetFilesFromArchive {
                 }
             }
         }
-        if (is != null) {
-            is.close();
-            zip.close();
+
         }
     }
 
-}
+
 
