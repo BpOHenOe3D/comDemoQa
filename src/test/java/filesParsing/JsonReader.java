@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 public class JsonReader {
-    ClassLoader classLoader = GetFilesFromArchive.class.getClassLoader();
+    ClassLoader classLoader = JsonReader.class.getClassLoader();
 
     @Test
     void jsonParser() throws Exception {
