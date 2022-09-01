@@ -2,6 +2,7 @@ package filesParsing;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import domain.Auto;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.InputStream;
@@ -13,6 +14,7 @@ public class JsonReader {
     ClassLoader classLoader = JsonReader.class.getClassLoader();
 
     @Test
+    @Disabled
     void jsonParser() throws Exception {
         InputStream is = classLoader.getResourceAsStream("auto.json");
         ObjectMapper objectMapper = new ObjectMapper();

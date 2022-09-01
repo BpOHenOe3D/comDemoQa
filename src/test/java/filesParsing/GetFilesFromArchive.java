@@ -3,6 +3,7 @@ package filesParsing;
 import com.codeborne.pdftest.PDF;
 import com.codeborne.xlstest.XLS;
 import com.opencsv.CSVReader;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
@@ -21,6 +22,7 @@ public class GetFilesFromArchive {
 
 
     @Test
+    @Disabled
     void zipCsvReader() throws Exception {
         InputStream is = classLoader.getResourceAsStream("Downloads.zip");
         ZipInputStream zip = new ZipInputStream(is);
@@ -43,6 +45,7 @@ public class GetFilesFromArchive {
     }
 
     @Test
+    @Disabled
     void zipXLSReaderTest() throws Exception {
         InputStream is = classLoader.getResourceAsStream("Downloads.zip");
         ZipInputStream zis = new ZipInputStream(is);
@@ -66,6 +69,7 @@ public class GetFilesFromArchive {
 
 
     @Test
+    @Disabled
     void zipPdfReader() throws Exception {
         InputStream is = classLoader.getResourceAsStream("Downloads.zip");
         ZipInputStream zip = new ZipInputStream(is);

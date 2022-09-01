@@ -2,6 +2,7 @@ package selenideGitHub;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
@@ -17,6 +18,7 @@ public class SearchJU5 {
     }
 
     @Test
+    @Disabled
     void search() {
         // Ищем репозиторий Селенида
         open("https://github.com/");

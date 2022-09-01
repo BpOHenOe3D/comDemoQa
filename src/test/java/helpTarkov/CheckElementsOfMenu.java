@@ -4,6 +4,7 @@ import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -32,6 +33,7 @@ public class CheckElementsOfMenu {
         );
     }
     @MethodSource
+    @Disabled
     @ParameterizedTest(name = "Меню  \"{0}\" содержит элементы: \"{1}\"")
     void checkMenu(String lang, List<String> expectedElementsOfMenu) {
         open("https://tarkov.help/ru/");
@@ -44,6 +46,7 @@ public class CheckElementsOfMenu {
             "Карты, ключи, выходы|  Берег Завод Лаборатория Лес Развязка Резерв Таможня Маяк Контейнеры",
             "Квесты|  Прапор Терапевт Скупщик Лыжник Миротворец Механик Барахольщик Егерь",
     },delimiter = '|')
+    @Disabled
     @ParameterizedTest(name = "Меню  \"{0}\" содержит элементы: \"{1}\"")
     void commonCheckElementsMenuTest(String testData, String expectedResult) {
         open("https://tarkov.help/ru/");
@@ -52,6 +55,7 @@ public class CheckElementsOfMenu {
     }
 
     @EnumSource(Menu.class)
+    @Disabled
     @ParameterizedTest
     void tarkovMenuElements(Menu lang){
         open("https://tarkov.help/ru/");
