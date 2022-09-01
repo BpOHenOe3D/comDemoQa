@@ -1,16 +1,32 @@
 package comDemoQa.testData;
 
+import allureAttach.AllureAttach;
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import com.github.javafaker.Faker;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
-import java.util.Locale;
 
 import static java.lang.String.format;
 
 public class TestData {
+    @BeforeAll
+    static void configure() {
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
 
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", true);
+        Configuration.browserCapabilities = capabilities;
+        Configuration.baseUrl = "https://demoqa.com";
+        Configuration.browserSize = "2560x1440";
+        Configuration.holdBrowserOpen = true;
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+
+    }
 
     Faker faker = new Faker();
 
@@ -35,6 +51,12 @@ public class TestData {
     public String dateOfBirth = format("%s %s,%s", day, month, year);
     public String stateAndCity = format("%s %s", state, city);
 
-
+    @AfterEach
+    void addAttachments() {
+        AllureAttach.screenshotAs("Screenshot");
+        AllureAttach.pageSource();
+        AllureAttach.browserConsoleLogs();
+        AllureAttach.addVideo();
+    }
 }
 

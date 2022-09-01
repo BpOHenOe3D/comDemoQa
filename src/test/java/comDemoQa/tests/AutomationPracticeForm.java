@@ -1,7 +1,11 @@
 package comDemoQa.tests;
 
+import allureAttach.AllureAttach;
 import com.codeborne.selenide.Configuration;
+import comDemoQa.testData.TestData;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 
@@ -12,17 +16,12 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 
-public class AutomationPracticeForm {
-    @BeforeAll
-    static void configure() {
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "2560x1440";
-        Configuration.holdBrowserOpen = true;
-    }
+public class AutomationPracticeForm extends TestData {
+
 
     @Test
-
-    void fillStandartTest (){
+    @DisplayName("Тест на заполнение формы")
+    void fillStandartTest() {
         open("/automation-practice-form");
         $("#firstName").setValue("Ser");
         $("#lastName").setValue("Nik");
@@ -57,4 +56,6 @@ public class AutomationPracticeForm {
         $(".modal-body").shouldHave(text("111.jpg"));
 
     }
+
+
 }

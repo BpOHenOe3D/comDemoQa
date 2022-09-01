@@ -1,23 +1,17 @@
 package comDemoQa.tests;
 
-import com.codeborne.selenide.Configuration;
 
 import comDemoQa.pages.AutomationPracticeForm;
 import comDemoQa.testData.TestData;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class AutomationPracticeFormWithPageObjects extends TestData {
     AutomationPracticeForm automationPracticeForm = new AutomationPracticeForm();
 
-    @BeforeAll
-    static void configure() {
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "2560x1440";
-        Configuration.holdBrowserOpen = true;
-    }
 
     @Test
+    @DisplayName("Тест на заполнение формы с PO")
     void fillGoodTest() {
         automationPracticeForm.openPage()
                 .fillFirstName(firstName)
@@ -45,6 +39,7 @@ public class AutomationPracticeFormWithPageObjects extends TestData {
                 .checkResult("State and City", stateAndCity)
                 .checkResult("Picture", checkPicture);
     }
+
 
 }
 
