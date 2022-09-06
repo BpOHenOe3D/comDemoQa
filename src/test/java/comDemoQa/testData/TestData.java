@@ -23,7 +23,6 @@ public class TestData {
 
         Configuration.browserCapabilities = capabilities;
         Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1920x1080";
 
         Configuration.browser = System.getProperty("browser_name", "chrome");
         Configuration.browserVersion = System.getProperty("browser_version", "105.0");
