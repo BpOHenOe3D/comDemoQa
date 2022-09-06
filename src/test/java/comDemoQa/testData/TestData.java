@@ -20,12 +20,30 @@ public class TestData {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
+
         Configuration.browserCapabilities = capabilities;
         Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "2560x1440";
-        Configuration.holdBrowserOpen = true;
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+        Configuration.browserSize = "1920x1080";
 
+        Configuration.browser = System.getProperty("browser_name", "chrome");
+        Configuration.browserVersion = System.getProperty("browser_version", "105.0");
+        Configuration.browserSize = System.getProperty("browser_size", "1920x1080");
+
+        if (System.getProperty("selenide.remote") != null) {
+            Configuration.remote = System.getProperty("selenide.remote");
+        }
+
+    }
+
+
+    @AfterEach
+    void addAttachments() {
+        AllureAttach.screenshotAs("Screenshot");
+        AllureAttach.pageSource();
+        AllureAttach.browserConsoleLogs();
+        if ((System.getProperty("selenide.remote") != null)) {
+            AllureAttach.addVideo();
+        }
     }
 
     Faker faker = new Faker();
@@ -50,13 +68,5 @@ public class TestData {
     public String fullName = format("%s %s", firstName, lastName);
     public String dateOfBirth = format("%s %s,%s", day, month, year);
     public String stateAndCity = format("%s %s", state, city);
-
-    @AfterEach
-    void addAttachments() {
-        AllureAttach.screenshotAs("Screenshot");
-        AllureAttach.pageSource();
-        AllureAttach.browserConsoleLogs();
-        AllureAttach.addVideo();
-    }
 }
 
