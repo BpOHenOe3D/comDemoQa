@@ -14,7 +14,6 @@ public class Computers {
         storedComputers.remove(computer);
     }
 
-
     public void searchComputer(String computer) {
         for (String storedComputer : storedComputers) {
             if (storedComputers.contains(computer)) {
