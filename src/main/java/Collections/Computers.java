@@ -20,9 +20,9 @@ public class Computers {
         }
     }
 
-    public void searchComputer(String author) {
+    public void searchComputer(String computer) {
         for (String storedComputer : storedComputers) {
-            if (storedComputers.contains(author)) {
+            if (storedComputers.contains(computer)) {
                 System.out.println("Комьютер в наличии");
             } else System.out.println("Комьютера нет в наличии");
         }
