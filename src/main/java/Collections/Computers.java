@@ -20,7 +20,5 @@ public class Computers {
                 System.out.println("Комьютер в наличии");
             } else System.out.println("Комьютера нет в наличии");
         }
-
-
     }
 }
