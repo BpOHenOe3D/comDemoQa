@@ -14,11 +14,6 @@ public class Computers {
         storedComputers.remove(computer);
     }
 
-    public void printComputer() {
-        for (int i = 0; i <= storedComputers.size(); i++) {
-            System.out.println("Комьютер в продаже " + i);
-        }
-    }
 
     public void searchComputer(String computer) {
         for (String storedComputer : storedComputers) {
