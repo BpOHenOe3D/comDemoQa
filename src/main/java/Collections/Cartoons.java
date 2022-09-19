@@ -11,7 +11,7 @@ public class Cartoons {
             storedCartoons.put(year, name);
         }
 
-        public void removeFilm(String name) {
+        public void removeCartoon(String name) {
             storedCartoons.remove(name);
         }
 
